@@ -28,6 +28,8 @@
     font-weight: 500;
 }
 
+
+/* input container */
 .inputContainer {
     display: flex;
     flex-direction: column;
