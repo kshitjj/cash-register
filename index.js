@@ -28,6 +28,7 @@ checkButton.addEventListener("click", function validateBillAndCashAmount(){
 });
 
 function calculateChangeValues(returnAmount){
+    resetTable();
     var changeCarry = returnAmount
     if(canGiveChange(changeCarry, 2000)){
         twoThousandCounter.innerHTML= Math.trunc(changeCarry/2000);
@@ -61,6 +62,16 @@ function calculateChangeValues(returnAmount){
 
 function canGiveChange(amount, change){
     return (Math.trunc(amount/change) !== 0);
+}
+
+function resetTable(){
+    twoThousandCounter.innerHTML = "";
+    fiveHundredCounter.innerHTML = "";
+    hundredCounter.innerHTML = "";
+    twentyCounter.innerHTML = "";
+    tenCounter.innerHTML = "";
+    fiveCounter.innerHTML = "";
+    oneCounter.innerHTML = "";
 }
 
 function hideMessage(){
