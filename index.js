@@ -29,36 +29,39 @@ checkButton.addEventListener("click", function validateBillAndCashAmount(){
 
 function calculateChangeValues(returnAmount){
     var changeCarry = returnAmount
-    if(Math.trunc(changeCarry/2000) !== 0){
+    if(canGiveChange(changeCarry, 2000)){
         twoThousandCounter.innerHTML= Math.trunc(changeCarry/2000);
         changeCarry = changeCarry%2000;
     }
-    if(Math.trunc(changeCarry/500) !== 0){
+    if(canGiveChange(changeCarry, 500)){
         fiveHundredCounter.innerHTML= Math.trunc(changeCarry/500);
         changeCarry = changeCarry%500;
     }
-    if(Math.trunc(changeCarry/100) !== 0){
+    if(canGiveChange(changeCarry, 100)){
         hundredCounter.innerHTML= Math.trunc(changeCarry/100);
         changeCarry = changeCarry%100;
     }
-    if(Math.trunc(changeCarry/20) !== 0){
+    if(canGiveChange(changeCarry, 20)){
         twentyCounter.innerHTML= Math.trunc(changeCarry/20);
         changeCarry = changeCarry%20;
     }
-    if(Math.trunc(changeCarry/10) !== 0){
+    if(canGiveChange(changeCarry, 10)){
         tenCounter.innerHTML= Math.trunc(changeCarry/10);
         changeCarry = changeCarry%10;
     }
-    if(Math.trunc(changeCarry/5) !== 0){
+    if(canGiveChange(changeCarry, 5)){
         fiveCounter.innerHTML= Math.trunc(changeCarry/5);
         changeCarry = changeCarry%5;
     }
-    if(Math.trunc(changeCarry/1) !== 0){
+    if(canGiveChange(changeCarry, 1)){
         oneCounter.innerHTML= Math.trunc(changeCarry/1);
         changeCarry = changeCarry%1;
     }
 }
 
+function canGiveChange(amount, change){
+    return (Math.trunc(amount/change) !== 0);
+}
 
 function hideMessage(){
     message.style.display = "none";
